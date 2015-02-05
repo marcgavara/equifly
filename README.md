@@ -11,4 +11,5 @@ Como es un proyecto de carácter personal, el código es cambiante para adaptars
 
 5 Febrero 2015
   · Administración de caballos y centros estandard finalizada.
+  - Modificación template Admin AdminLTE en vistas Home, Caballos y Centros.
 
