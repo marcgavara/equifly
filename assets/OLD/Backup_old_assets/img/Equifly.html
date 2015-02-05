@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0025)http://localhost/caballos -->
+<html xmlns="http://www.w3.org/1999/xhtml" debug="true" class=""><script src="chrome-extension://bmagokdooijbeehmkpknfglimnifench/firebug-lite.js" id="FirebugLite" firebugignore="true" extension="Chrome"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	 
+	<title>Equifly</title>
+	<link rel="stylesheet" href="./Equifly_files/menu.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="./Equifly_files/main_content.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="./Equifly_files/view.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="./Equifly_files/table.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="./Equifly_files/jquery.fancybox-2.1.5.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="./Equifly_files/select2.css" type="text/css" media="screen">
+
+	<script type="text/javascript" src="./Equifly_files/select2.js"></script>
+	<script type="text/javascript" src="./Equifly_files/select2_locale_es.js"></script>
+	<script src="./Equifly_files/jquery-latest.min.js" type="text/javascript"></script>	
+	<script type="text/javascript" src="./Equifly_files/jquery-latest.js"></script>
+	<script type="text/javascript" src="./Equifly_files/jquery.fancybox-2.1.5.pack.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('#caballos').click(function(){
+			$('#menu').toggle('blind');
+			//fadeToggle('fast');
+		});	
+		$('#aislamiento').click(function(){
+			$('#menu_aislamiento').toggle('blind');
+		});
+		$('#administracion').click(function(){
+			$('#menu_administracion').toggle('blind');
+		});
+		$('#transporte').click(function(){
+			$('#menu_transporte').toggle('blind');
+		});
+		$('#ganadero').click(function(){
+			$('#menu_ganadero').toggle('blind');
+			//$("menu_ganadero").effect( "bounce", "slow" );
+		});
+	});
+	</script>
+<style type="text/css">.fancybox-margin{margin-right:0px !important;}</style></head><script src="chrome-extension://bmagokdooijbeehmkpknfglimnifench/googleChrome.js"></script>
+<body>
+<div class="container_menu">
+	<div id="user">
+		Hola <b><span>marc.gavara</span></b> - <img src="./Equifly_files/profile.png" width="10%"> <a href="http://localhost/welcome/logout"><img src="./Equifly_files/logout.png" width="10%"></a>
+	</div>
+	<div class="content">
+		<a href="http://localhost/home" style="text-decoration:none;"><div id="inicio" style="cursor:pointer;">Inicio</div></a>
+	    <div id="caballos" style="cursor:pointer;color:#ffaa56;">Gestión entradas</div>
+		    <div id="menu">
+			    <div id="arrow"></div>
+			    <a href="./Equifly_files/Equifly.html" style="color:red;">Caballos</a>
+  		    </div>
+	    <div id="aislamiento" style="cursor:pointer;">Aislamiento</div>
+	        <div id="menu_aislamiento">
+		       	<div id="arrow_aislamiento"></div>
+		        <a href="http://localhost/aislamiento/centros" style="color:">Centros</a>
+		        <a href="http://localhost/aislamiento/anadir_caballo" style="color:">Añadir caballo</a>
+	  		</div>
+  		<div id="administracion" style="cursor:pointer;">Administracion</div>
+	        <div id="menu_administracion">
+		       	<div id="arrow_administracion"></div>
+		        <a href="http://localhost/administracion/perfil/1">Perfil</a>
+	  		</div>
+  		<div id="transporte" style="cursor:pointer;">Transporte</div>
+	        <div id="menu_transporte">
+		       	<div id="arrow_transporte"></div>
+		        <a href="http://localhost/transporte/transportistas" style="color:">Transportistas</a>
+	  		</div>
+  		<div id="ganadero" style="cursor:pointer;">Ganadería</div>
+	        <div id="menu_ganadero">
+		       	<div id="arrow_ganadero"></div>
+		        <a href="http://localhost/administracion/perfil/1">Ganaderos</a>
+	  		</div>
+  	</div>
+</div><!-- EMPIEZA EL CUERPO -->
+<script>
+$( document ).ready(function() {
+  $('#filtro_caballo').select2({
+        placeholder: provider
+    });
+});
+</script>
+<div class="container">
+    
+
+    <input type="hidden" class="bigdrop" name="filtro_caballo" id="filtro_caballo" value="" style="width:200px;">
+
+    <form action="http://localhost/caballos/nuevo_caballo" method="post">
+        <input type="submit" id="nueva_ficha_caballo" value="Nueva ficha caballo" class="button">  
+    </form>
+	<div id="header_content">
+	<h3>Listado caballos</h3>
+	</div>
+	<div class="table_css">
+        <table>
+            <tbody><tr>
+                <td style="width:50px;">ID</td>
+                <td>Nombre</td>
+                <td>Raza</td>
+                <td>Sexo</td>
+                <td>Pasaporte</td>
+                <td>Propietaro</td>
+                <td>Acciones</td>
+            </tr>
+
+                        <tr>
+                <td style="width:50px;">1</td>
+                <td>Pruna</td>
+                <td>Frisón</td>
+                <td>macho</td>
+                <td>ABC1234DEF</td>
+                <td>Marc Gavara Pascual</td>
+                <td style="width:300px;" id="link">
+                    <a href="http://localhost/caballos/ver/1"> Ver más</a> |
+                    <a href="http://localhost/caballos#"> Veterinarios</a> |
+                    <a href="http://localhost/caballos#"> Cuarentena</a>
+                </td>
+                        </tr>
+        </tbody></table>
+    </div>
+</div>
+
+
+	<iframe src="./Equifly_files/Equifly.html" frameborder="0" id="FirebugUI" style="border: 0px; visibility: visible; z-index: 2147483647; position: fixed; width: 100%; left: 0px; bottom: 0px; height: 300px; display: block;"></iframe></body></html>
