@@ -50,9 +50,7 @@ $(function() {
 
     });
 
-
-
-
+     /* VER / EDITAR CENTROS*/
     $('#form_edit_centros input[type=text]').attr("disabled",true);
     $('#form_edit_centros #infermeria').attr("disabled",true);
     $('#form_edit_centros textarea').attr("disabled",true);
@@ -67,7 +65,6 @@ $(function() {
         $('#infermeria').attr("disabled",false);
         $('#form_edit_centros #num_boxes').attr("disabled",false);
     });
-
 
 
     //Enable sidebar toggle

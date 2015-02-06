@@ -6,7 +6,7 @@ class Welcome extends Private_Controller {
 		/*
 			Si no esta logueado lo redirigmos al formulario de login.
 		*/
-		if(!@$this->user) 
+		if(!@$this->user)
 			redirect(site_url('welcome/login'));
 		else
 			redirect(site_url('/home'));
@@ -44,6 +44,9 @@ class Welcome extends Private_Controller {
 		$this->load->view('login', $data);
 	}
 
+	/*
+	* Función para hacer desconexión
+	*/
 	public function logout() {
 		$this->session->unset_userdata('logged_user');
 		redirect('welcome/index');

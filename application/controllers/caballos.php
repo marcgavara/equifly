@@ -1,5 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/*
+* Controlador de logística de los Caballos.
+* Aquí están las funcíones para añadir, editar, eliminar, etc.
+*/
+
 class Caballos extends Private_Controller {
 
 	function __construct(){
@@ -15,6 +20,10 @@ class Caballos extends Private_Controller {
 
  	}
 
+ 	/*
+ 	* Función que muestra todos los registros existentesm y con filtrado para optimizar la búsqueda.
+ 	* ToDo: Paginador y modifcación query para admitir parámetros de búsqueda paginada
+ 	*/
 	public function index()
 	{
 		if(!@$this->user) redirect ('welcome/login');
@@ -43,6 +52,12 @@ class Caballos extends Private_Controller {
 		$this->load_admin_view('caballos/caballos',$data);
 	}
 
+
+	/*
+	* Función Ver.
+	* Obtenemos todos los datos del caballo que se ha intoducido, además permite su modificación
+	*
+	*/
 	public function ver($id_caballo)
 	{
 		if(!@$this->user) redirect ('welcome/login');
@@ -114,11 +129,13 @@ class Caballos extends Private_Controller {
 
 	public function guardar_caballo($id_caballo = NULL)
 	{
-
-
 		redirect(site_url('/caballos/ver/'.$id_caballo));
 	}
 
+	/*
+	* Fnción quue permite la inserción de nuevos registros de caballos en la base de datos.
+	*
+	*/
 	public function nuevo_caballo()
 	{
 		if(!@$this->user) redirect ('welcome/login');
@@ -185,6 +202,9 @@ class Caballos extends Private_Controller {
 		$this->load_admin_view('/caballos/nuevo_caballo',$data);
 	}
 
+	/*
+	* Check de todos los campos del formulario con sus correspondientes normativas
+	*/
 	public function check_ficha_caballo()
 	{
 		$this->form_validation->set_rules('nombre_caballo', 'Nombre', 'trim|required');

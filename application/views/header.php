@@ -8,8 +8,6 @@
         <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Ionicons -->
         <link href="//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <!-- Morris chart -->
-        <link href="<?= site_url('assets/css/morris/morris.css') ?>" rel="stylesheet" type="text/css" />
         <!-- jvectormap -->
         <link href="<?= site_url('assets/css/jvectormap/jquery-jvectormap-1.2.2.css') ?>" rel="stylesheet" type="text/css" />
         <!-- Date Picker -->
@@ -28,15 +26,13 @@
         <script src="<?= site_url('assets/js/plugins/daterangepicker/daterangepicker.js') ?>" type="text/javascript"></script>
         <script src="<?= site_url('assets/js/plugins/datepicker/bootstrap-datepicker.js') ?>" type="text/javascript"></script>
 
-
-        <!-- AdminLTE App -->
+        <!-- AdminLTE App + Equifly -->
         <script src="<?= site_url('assets/js/AdminLTE/app.js') ?>" type="text/javascript"></script>
 
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <!-- AdminLTE dashboard  -->
         <script src="<?= site_url('assets/js/AdminLTE/dashboard.js') ?>" type="text/javascript"></script>
-
-        <!-- AdminLTE for demo purposes -->
         <script src="<?= site_url('assets/js/AdminLTE/demo.js') ?>" type="text/javascript"></script>
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -109,7 +105,7 @@
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
-                        <li class="dropdown messages-menu">
+                        <!--<li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
                                 <span class="label label-success">4</span>
@@ -117,9 +113,8 @@
                             <ul class="dropdown-menu">
                                 <li class="header">You have 4 messages</li>
                                 <li>
-                                    <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
-                                        <li><!-- start message -->
+                                        <li>
                                             <a href="#">
                                                 <div class="pull-left">
                                                     <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
@@ -130,7 +125,7 @@
                                                 </h4>
                                                 <p>Why not buy a new awesome theme?</p>
                                             </a>
-                                        </li><!-- end message -->
+                                        </li><
                                         <li>
                                             <a href="#">
                                                 <div class="pull-left">
@@ -184,7 +179,6 @@
                                 <li class="footer"><a href="#">See All Messages</a></li>
                             </ul>
                         </li>
-                        <!-- Notifications: style can be found in dropdown.less -->
                         <li class="dropdown notifications-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-warning"></i>
@@ -193,7 +187,6 @@
                             <ul class="dropdown-menu">
                                 <li class="header">You have 10 notifications</li>
                                 <li>
-                                    <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
                                         <li>
                                             <a href="#">
@@ -226,7 +219,6 @@
                                 <li class="footer"><a href="#">View all</a></li>
                             </ul>
                         </li>
-                        <!-- Tasks: style can be found in dropdown.less -->
                         <li class="dropdown tasks-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-tasks"></i>
@@ -235,9 +227,8 @@
                             <ul class="dropdown-menu">
                                 <li class="header">You have 9 tasks</li>
                                 <li>
-                                    <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
-                                        <li><!-- Task item -->
+                                        <li>
                                             <a href="#">
                                                 <h3>
                                                     Design some buttons
@@ -249,8 +240,8 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                        </li><!-- end task item -->
-                                        <li><!-- Task item -->
+                                        </li>
+                                        <li>
                                             <a href="#">
                                                 <h3>
                                                     Create a nice theme
@@ -262,8 +253,8 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                        </li><!-- end task item -->
-                                        <li><!-- Task item -->
+                                        </li>
+                                        <li>
                                             <a href="#">
                                                 <h3>
                                                     Some task I need to do
@@ -275,8 +266,8 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                        </li><!-- end task item -->
-                                        <li><!-- Task item -->
+                                        </li>
+                                        <li>
                                             <a href="#">
                                                 <h3>
                                                     Make beautiful transitions
@@ -288,14 +279,14 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                        </li><!-- end task item -->
+                                        </li>
                                     </ul>
                                 </li>
                                 <li class="footer">
                                     <a href="#">View all tasks</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

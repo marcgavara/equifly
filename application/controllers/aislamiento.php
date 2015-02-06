@@ -1,5 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/*
+* Controlador de logística de centros de aislamiento.
+* Aquí están las funcíones para añadir, editar, eliminar, etc.
+*/
+
 class Aislamiento extends Private_Controller {
 
 	function __construct(){
@@ -9,6 +14,9 @@ class Aislamiento extends Private_Controller {
   		$this->load->model('imagenes_model');
  	}
 
+ 	/*
+	* Función para mostrar listado de centros, dispone además, de un buscador.
+ 	*/
 	public function centros()
 	{
 		if(!@$this->user) redirect ('welcome/login');
@@ -21,6 +29,10 @@ class Aislamiento extends Private_Controller {
 		$this->load_admin_view('aislamiento/centros',$data);
 	}
 
+
+	/*
+	* Función que inserta nuevos registros de centros
+	*/
 	public function nuevo_centro()
 	{
 		if(!@$this->user) redirect ('welcome/login');
@@ -36,6 +48,7 @@ class Aislamiento extends Private_Controller {
 			foreach ($fields as $field) {
 				$centro->{$field} = $this->input->post($field);
 			}
+
 			$id_centro = $this->aislamiento_model->anadir_centro($centro);
 			$result = $this->upload_imagen($id_centro);
 			$this->session->set_flashdata('message', 'Se ha añadido un nuevo centro');
@@ -48,6 +61,9 @@ class Aislamiento extends Private_Controller {
 		$this->load_admin_view('/aislamiento/nuevo_centro',$data);
 	}
 
+	/*
+	* Check de todos los campos del formulario con sus correspondientes normativas
+	*/
 	public function check_form()
 	{
 		$this->form_validation->set_rules('nombre', 'Nombre', 'required|trim');
@@ -68,6 +84,11 @@ class Aislamiento extends Private_Controller {
 		return $this->form_validation->run();
 	}
 
+	/*
+	* Función para subir las imágenes de los centros al servidor y posteriormente vinculación con el centro
+	* Parámetro entrada: $id_centro
+	* Parámetro de salida: $error / $succes => array con resultados
+	*/
 	public function upload_imagen($id_centro)
 	{
 		$config['upload_path'] = site_url('public/imagenes/centros');
@@ -78,9 +99,8 @@ class Aislamiento extends Private_Controller {
 		$this->load->library('upload', $config);
 
 		$this->upload->initialize( $config );
-        // Change $_FILES to new vars and loop them
-        foreach($_FILES['userfile'] as $key=>$val)
-        {
+
+        foreach($_FILES['userfile'] as $key=>$val) {
             $i = 1;
             foreach($val as $v)
             {
@@ -89,29 +109,36 @@ class Aislamiento extends Private_Controller {
                 $i++;
             }
         }
+
         unset($_FILES['userfile']);
 
-        // Put each errors and upload data to an array
         $error = array();
         $success = array();
+        foreach($_FILES as $field_name => $file) {
 
-        // main action to upload each file
-        foreach($_FILES as $field_name => $file)
-        {
             if (!$this->upload->do_upload($field_name)) {
                 $error['upload'][] = $this->upload->display_errors();
             } else {
                 $upload_data = $this->upload->data();
                	$success[] = $upload_data;
-               	//AÑADIMOS LA IMAGEN EN BBDD
+
+               	//Vinculamos la imágen en la ficha del centro
 				$centro = new stdClass();
 				$centro->url = str_replace("/Applications/XAMPP/xamppfiles/htdocs/ExportHorses", ".", $upload_data['full_path']);
 				$centro->id_centro_aislamiento = $id_centro;
 				$this->imagenes_model->add_imagenes_centro_aislamiento($centro);
             }
         }
+
+        if ($error)
+        	return $error;
+        else
+        	return $success;
 	}
 
+	/*
+	* Función para ver centros
+	*/
 	public function ver_centro($id_centro)
 	{
 		if(!@$this->user) redirect ('welcome/login');
@@ -142,6 +169,9 @@ class Aislamiento extends Private_Controller {
 		$this->load_admin_view('/aislamiento/ver',$data);
 	}
 
+	/*
+	* Función que permite eliminar centro de la base de datos.
+	*/
 	public function eliminar_centro($id_centro)
 	{
 		if(!@$this->user) redirect ('welcome/login');
@@ -154,6 +184,9 @@ class Aislamiento extends Private_Controller {
 		redirect(site_url('aislamiento/centros'));
 	}
 
+	/*
+	* Función json para comprobar si el nif del centro ya existe.
+	*/
 	public function comprueba_nif()
 	{
 		header('Content-Type: application/json');
