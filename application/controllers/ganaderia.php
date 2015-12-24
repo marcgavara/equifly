@@ -16,14 +16,14 @@ class Ganaderia extends Private_Controller {
 		$data["ganaderias"] = $this->ganaderias_model->get_ganaderias();
 		$data['message'] = $this->session->flashdata('message');
 		$data['menu'] = 'ganaderia';
-		$data['submenu'] = 'ganaderos';		
-		$this->load->view('menu',$data);
-		$this->load->view('ganaderia/ganaderia',$data);
+		$data['submenu'] = 'ganaderos';
+
+		$this->load_admin_view('ganaderia/ganaderia',$data);
 
 	}
 
 	public function check_form()
-	{		
+	{
 		$this->form_validation->set_rules('nombre', 'Nombre', 'required|trim');
 		$this->form_validation->set_rules('direccion', 'Dirección', 'required|trim');
 		$this->form_validation->set_rules('poblacion', 'Población', 'required|trim');
@@ -55,7 +55,7 @@ class Ganaderia extends Private_Controller {
 
 			foreach ($fields as $field)
 				$ganaderia->{$field} = $this->input->post($field);
-			
+
 			$this->ganaderias_model->anadir_ganaderia($ganaderia);
 			$this->session->set_flashdata('message', 'La ganadería se ha guardado correctamente');
 			redirect(site_url('/ganaderia/'));
@@ -65,9 +65,8 @@ class Ganaderia extends Private_Controller {
 
 
 		$data['menu'] = 'ganaderia';
-		$data['submenu'] = 'ganaderos';		
-		$this->load->view('menu',$data);
-		$this->load->view('ganaderia/nueva_ganaderia',$data);
+		$data['submenu'] = 'ganaderos';
+		$this->load_admin_view('ganaderia/nueva_ganaderia',$data);
 
 	}
 
@@ -86,7 +85,7 @@ class Ganaderia extends Private_Controller {
 
 			foreach ($fields as $field)
 				$ganaderia->{$field} = $this->input->post($field);
-			
+
 			$this->ganaderias_model->actualizar_ganaderia($id_ganaderia, $ganaderia);
 			$this->session->set_flashdata('message', 'La ganadería se ha guardado correctamente');
 			redirect(site_url('/ganaderia/'));
@@ -95,9 +94,8 @@ class Ganaderia extends Private_Controller {
 			$data['error'] = validation_errors();
 
 		$data['menu'] = 'ganaderia';
-		$data['submenu'] = 'ganaderos';		
-		$this->load->view('menu',$data);
-		$this->load->view('ganaderia/ver',$data);
+		$data['submenu'] = 'ganaderos';
+		$this->load_admin_view('ganaderia/ver',$data);
 
 	}
 

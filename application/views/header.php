@@ -364,6 +364,17 @@
                                 <li <?= $submenu == 'nuevo_centro' ? 'class="active"' : '' ?>><a href="<?=site_url('/aislamiento/nuevo_centro')?>" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Añadir centro</a></li>
                             </ul>
                         </li>
+                        <li class="treeview <?= $menu == 'ganaderia' ? 'active' : ''?>">
+                            <a href="#">
+                                <i class="fa fa-star"></i>
+                                <span>Ganadería</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li <?= $submenu == 'ganaderos' ? 'class="active"' : '' ?>><a href="<?=site_url('/aislamiento/centros')?>" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Ver Ganaderías</a></li>
+                                <li <?= $submenu == 'nuevo_ganadero' ? 'class="active"' : '' ?>><a href="<?=site_url('/aislamiento/nuevo_centro')?>" style="margin-left: 10px;"><i class="fa fa-angle-double-right"></i> Añadir ganadería</a></li>
+                            </ul>
+                        </li>
 
                     </ul>
                 </section>

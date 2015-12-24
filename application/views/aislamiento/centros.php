@@ -20,7 +20,7 @@ $( document ).ready(function() {
                 <?= $error ?>
             </div>
         <?php endif; ?>
-            <div class="box box-warning" style="">
+        <div class="box box-warning" style="">
             <div class="box-header">
                 <h3 class="box-title">Centros de aislamiento</h3>
             </div><!-- /.box-header -->
@@ -53,7 +53,6 @@ $( document ).ready(function() {
                 <div class="box-footer">
                     <input type="submit" id="buscar" value="Buscar" class="btn btn-success" style="width:100px;">
                     <input type="submit" id="borrar" name="borrar" value="Borrar" class="btn btn-danger" style="width:100px;">
-                    <input type="button" id="nuevo" name="nuevo" value="Nuevo caballo" class="btn btn-info" style="width:150px;" onclick="javascript(windowd.location.href='ddd')">
                 </div>
             </form>
         </div>
